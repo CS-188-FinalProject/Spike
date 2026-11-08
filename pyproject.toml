@@ -1,13 +1,15 @@
 [project]
 name = "spike"
 version = "0.1.0"
-description = "Add your description here"
+description = "CS188 Final Project: SPIKE "
 readme = "README.md"
 authors = [
     { name = "Isaac", email = "isaac.keninger@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "pytest>=9.2.0",
+]
 
 [project.scripts]
 spike = "spike:main"
