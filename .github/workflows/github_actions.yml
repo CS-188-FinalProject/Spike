@@ -1,0 +1,22 @@
+name: github_actions
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install Python and dependencies
+        run: uv sync
+
+      - name: Run tests
+        run: uv run pytest tests/tests.py
