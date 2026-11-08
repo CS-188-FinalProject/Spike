@@ -1,2 +1,5 @@
-def main() -> None:
-    print("Hello from spike! CS188 Project 2")
+def main():
+    """Entry point for the API activity application."""
+    from spike.app import run_app
+
+    run_app(debug=True)
