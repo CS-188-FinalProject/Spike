@@ -1,20 +1,15 @@
+import os
 from flask import Flask, render_template
 
 def create_app():
-    app = Flask(__name__)
-    setup_routes(app)
+    # Setting instance_path forces Flask to look inside the package folder for /templates
+    app = Flask(__name__, instance_relative_config=True)
+
+    @app.route("/")
+    def index():
+        return render_template("index.html")
+
     return app
-
-def index():
-    return render_template(
-        "index.html", )
-
-def setup_routes(app):
-    app.route("/")(index)
-
-def run_app(debug: bool = True) -> None:
-    app = create_app()
-    app.run(debug=debug)
 
 if __name__ == "__main__":
     app = create_app()
