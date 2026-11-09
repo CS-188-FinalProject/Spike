@@ -2,8 +2,8 @@ import os
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, render_template
 
-from src.spike import auth, db
-from src.spike._constants import SECRET_ENV_FILE
+from spike import auth, db
+from spike._constants import SECRET_ENV_FILE
 
 def index():
     return render_template("index.html")
