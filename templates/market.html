@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Market Details · Drake Market</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+    <a class="brand" href="index.html">
+        <span class="brand-mark">D</span>
+        <span>Drake <b>Market</b></span>
+    </a>
+    <div class="top-actions">
+        <span class="demo-tag">DEMO</span>
+        <a class="avatar" href="profile.html">CF</a>
+    </div>
+</header>
+
+<main id="main" class="page-shell">
+
+    <a class="back-link" href="markets.html">← All markets</a>
+
+    <div id="market-detail"></div>
+
+</main>
+
+<nav class="tabbar" aria-label="Main navigation">
+    <a class="tab" href="index.html"><span>⌂</span>Home</a>
+    <a class="tab active" href="markets.html"><span>◫</span>Markets</a>
+    <a class="tab" href="portfolio.html"><span>▤</span>Portfolio</a>
+    <a class="tab" href="profile.html"><span>○</span>Profile</a>
+</nav>
+
+<dialog id="trade-dialog" class="trade-dialog">
+    <form method="dialog" id="trade-form">
+
+        <div class="dialog-head">
+            <div>
+                <p class="eyebrow">PRACTICE TRADE</p>
+                <h2 id="trade-title">Buy shares</h2>
+            </div>
+            <button class="icon-button" value="cancel" aria-label="Close">×</button>
+        </div>
+
+        <p class="muted" id="trade-description"></p>
+
+        <label class="field-label" for="trade-amount">
+            Credits to spend
+        </label>
+
+        <input id="trade-amount" type="number"
+               min="1" max="1000" value="25" required>
+
+        <p class="muted small">
+            Simulated trade using demo credits only.
+        </p>
+
+        <button class="button button-primary full" type="submit">
+            Confirm practice trade
+        </button>
+
+    </form>
+</dialog>
+
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
