@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# Spike
+CS188 Final Project
+=======
 **ChatGPT created this documentation based off of our initial plan.**
 
 
@@ -181,3 +185,4 @@ Any implementation involving real-money wagers, cash-outs, or gambling-related f
 ## Project Goals
 
 The primary goal of Drake Prediction Markets is to make Drake athletics and campus events more engaging by giving students an interactive platform to make predictions, compete with friends, and become more involved in the Drake community.
+>>>>>>> origin/main

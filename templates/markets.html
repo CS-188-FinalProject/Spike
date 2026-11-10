@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markets · Drake Market</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+    <a class="brand" href="index.html">
+        <span class="brand-mark">D</span>
+        <span>Drake <b>Market</b></span>
+    </a>
+    <div class="top-actions">
+        <span class="demo-tag">DEMO</span>
+        <a class="avatar" href="profile.html">CF</a>
+    </div>
+</header>
+
+<main id="main" class="page-shell">
+
+    <section class="welcome compact">
+        <p class="eyebrow">THE MARKETPLACE</p>
+        <h1>Explore markets</h1>
+        <p class="muted">Browse predictions from around Drake.</p>
+    </section>
+
+    <label class="searchbox">
+        <span>⌕</span>
+        <span class="sr-only">Search markets</span>
+        <input id="market-search" type="search"
+               placeholder="Search campus, dining, athletics...">
+    </label>
+
+    <div class="filter-row" aria-label="Filter markets">
+        <button class="chip selected" data-filter="All">All</button>
+        <button class="chip" data-filter="Athletics">Athletics</button>
+        <button class="chip" data-filter="Campus">Campus</button>
+        <button class="chip" data-filter="Dining">Dining</button>
+    </div>
+
+    <section class="section-heading">
+        <h2>Open markets</h2>
+        <span class="muted small" id="market-count"></span>
+    </section>
+
+    <div class="market-list" id="all-markets"></div>
+
+</main>
+
+<nav class="tabbar" aria-label="Main navigation">
+    <a class="tab" href="index.html"><span>⌂</span>Home</a>
+    <a class="tab active" href="markets.html"><span>◫</span>Markets</a>
+    <a class="tab" href="portfolio.html"><span>▤</span>Portfolio</a>
+    <a class="tab" href="profile.html"><span>○</span>Profile</a>
+</nav>
+
+<script src="../assets/js/app.js"></script>
+</body>
+</html>
