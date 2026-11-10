@@ -13,7 +13,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="topbar">
-    <a class="brand" href="index.html">
+    <a class="brand" href="{{ url_for('index') }}">
         <span class="brand-mark">D</span>
         <span>Drake <b>Market</b></span>
     </a>
@@ -36,7 +36,7 @@
 
     <section class="settings-list">
 
-        <a href="portfolio.html">
+        <a href="{{ url_for('portfolio') }}">
             <span>▤</span>
             <span>
                 <b>My portfolio</b>
@@ -45,7 +45,7 @@
             <span class="chevron">›</span>
         </a>
 
-        <a href="markets.html">
+        <a href="{{ url_for('markets') }}">
             <span>◫</span>
             <span>
                 <b>Explore markets</b>
