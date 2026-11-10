@@ -12,19 +12,19 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="topbar">
-    <a class="brand" href="index.html">
+    <a class="brand" href=" {{ url_for('index') }}">
         <span class="brand-mark">D</span>
         <span>Drake <b>Market</b></span>
     </a>
     <div class="top-actions">
         <span class="demo-tag">DEMO</span>
-        <a class="avatar" href="profile.html">CF</a>
+        <a class="avatar" href="{{ url_for('profile') }}">CF</a>
     </div>
 </header>
 
 <main id="main" class="page-shell">
 
-    <a class="back-link" href="markets.html">← All markets</a>
+    <a class="back-link" href="{{ url_for('markets') }}">← All markets</a>
 
     <div id="market-detail"></div>
 
