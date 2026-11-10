@@ -67,10 +67,10 @@
 </main>
 
 <nav class="tabbar" aria-label="Main navigation">
-    <a class="tab active" href="index.html"><span>⌂</span>Home</a>
-    <a class="tab" href="markets.html"><span>◫</span>Markets</a>
-    <a class="tab" href="portfolio.html"><span>▤</span>Portfolio</a>
-    <a class="tab" href="profile.html"><span>○</span>Profile</a>
+    <a class="tab active" href="{{ url_for('index') }}"><span>⌂</span>Home</a>
+    <a class="tab" href="{{ url_for('markets') }}"><span>◫</span>Markets</a>
+    <a class="tab" href="{{ url_for('portfolio') }}"><span>▤</span>Portfolio</a>
+    <a class="tab" href="{{ url_for('profile') }}"><span>○</span>Profile</a>
 </nav>
 
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>

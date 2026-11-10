@@ -9,6 +9,18 @@ def create_app():
     def index():
         return render_template("index.html")
 
+    @app.route("/markets")
+    def markets():
+        return render_template("markets.html")
+
+    @app.route("/portfolio")
+    def portfolio():
+        return render_template("portfolio.html")
+
+    @app.route("/profile")
+    def profile():
+        return render_template("profile.html")
+
     return app
 
 if __name__ == "__main__":
