@@ -24,7 +24,7 @@
     </a>
     <div class="top-actions">
         <span class="demo-tag">DEMO</span>
-        <a class="avatar" href="{{ url_for('profile') }}">CF</a>
+        <a class="avatar" href="{{ url_for('profile') }}">TU</a>
     </div>
 </header>
 
@@ -71,14 +71,7 @@
 
 </main>
 
-<nav class="tabbar" aria-label="Main navigation">
-    <a class="tab active" href="{{ url_for('index') }}"><span>⌂</span>Home</a>
-    <a class="tab" href="{{ url_for('markets') }}"><span>◫</span>Markets</a>
-    <a class="tab" href="{{ url_for('portfolio') }}"><span>▤</span>Portfolio</a>
-    <a class="tab" href="{{ url_for('profile') }}"><span>○</span>Profile</a>
-    {% include "components/account_nav.html" %}
-</nav>
-
+{% include "components/account_nav.html" %}
 {% include "components/register_modal.html" %}
 {% include "components/login_modal.html" %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
