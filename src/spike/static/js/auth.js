@@ -18,8 +18,6 @@ function setError(input, message) {
 
 function validatePassword(id) {
 	const password = document.getElementById(id);
-	// .test() checks whether the text matches the regular expression.
-	// .value is the text the user typed into the input.
 	if (!PASSWORD_PATTERN.test(password.value)) {
 		setError(password, "Password must be at least 8 characters with no spaces.");
 		return false;
@@ -40,7 +38,6 @@ function validateUsername(id) {
 
 function validateDisplayName(id) {
 	const displayName = document.getElementById(id);
-	// .trim() removes spaces from both ends, so "   " counts as empty.
 	if (displayName.value.trim() === "") {
 		setError(displayName, "Display name cannot be empty.");
 		return false;
@@ -51,7 +48,6 @@ function validateDisplayName(id) {
 
 function hideModal(id) {
 	const modal = bootstrap.Modal.getInstance(document.getElementById(id));
-	// ?. means "only call hide() if getInstance found something".
 	modal?.hide();
 }
 
@@ -65,16 +61,11 @@ async function postJson(url, data) {
 		const result = await response.json();
 		return { response, result };
 	} catch {
-		// fetch() throws if the server can't be reached, and .json() throws if the
-		// server sent back something that isn't JSON (like an HTML error page).
 		return null;
 	}
 }
 
-// Runs when the register form is submitted.
 async function submitRegisterForm(event) {
-	// Without this, the browser would submit the form itself and reload the page,
-	// and our code below would never get to send the request.
 	event.preventDefault();
 
 	let isValid = validatePassword("registerPassword");
@@ -84,7 +75,6 @@ async function submitRegisterForm(event) {
 		return;
 	}
 
-	// The keys here must match what the server reads in Register.post().
 	const formData = {
 		username: document.getElementById("registerUsername").value,
 		password: document.getElementById("registerPassword").value,
@@ -97,7 +87,6 @@ async function submitRegisterForm(event) {
 		return;
 	}
 
-	// response.ok is true for status codes 200-299 (we send 201 on success).
 	if (!reply.response.ok) {
 		alert("Registration failed: " + reply.result.message);
 		return;
@@ -133,7 +122,7 @@ async function submitLoginForm(event) {
 		return;
 	}
 
-	window.location.href = "/account";
+	window.location.href = "/";
 
 	alert(reply.result.message);
 	hideModal("loginModal");
@@ -162,9 +151,7 @@ function clearValidation(event) {
 
 function resetModalForms(event) {
 	for (const form of event.target.querySelectorAll("form")) {
-		// reset() puts every input in the form back to its starting value.
 		form.reset();
-		// reset() doesn't know about Bootstrap's classes, so we remove them ourselves.
 		for (const input of form.querySelectorAll(".is-valid, .is-invalid")) {
 			input.classList.remove("is-valid", "is-invalid");
 		}
@@ -172,8 +159,6 @@ function resetModalForms(event) {
 }
 
 function attachEventListeners() {
-	// ?. means "only call addEventListener if the element exists". Every page
-	// includes this script, but a page might not have every form on it.
 	document.getElementById("registerForm")?.addEventListener("submit", submitRegisterForm);
 	document.getElementById("loginForm")?.addEventListener("submit", submitLoginForm);
 	document.getElementById("logoutButton").addEventListener("click", logout);
@@ -188,9 +173,6 @@ function attachEventListeners() {
 	}
 }
 
-// Run attachEventListeners once the page's HTML has loaded. If it has already
-// loaded by the time this script runs, run it right away. Otherwise, wait for
-// the DOMContentLoaded event.
 function onReady(callback) {
 	if (document.readyState === "loading") {
 		document.addEventListener("DOMContentLoaded", callback);
@@ -199,5 +181,4 @@ function onReady(callback) {
 	}
 }
 
-// The only top-level code in this file. Everything else happens in functions.
 onReady(attachEventListeners);

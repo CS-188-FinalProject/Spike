@@ -1,9 +1,3 @@
-
-// ==========================================
-// DRAKE MARKET - FRONT END JAVASCRIPT
-// ==========================================
-
-// Sample market data
 const markets = [
     {
         id: "basketball",
@@ -52,10 +46,6 @@ const markets = [
     }
 ];
 
-// ==========================================
-// LOCAL DEMO STORAGE
-// ==========================================
-
 function readState() {
     try {
         return JSON.parse(localStorage.getItem("drakeMarketDemo")) || {
@@ -79,10 +69,6 @@ function saveState(state) {
 function formatNumber(number) {
     return Number(number).toLocaleString("en-US");
 }
-
-// ==========================================
-// MARKET CARD
-// ==========================================
 
 function marketCard(market) {
     return `
@@ -113,10 +99,6 @@ function marketCard(market) {
     `;
 }
 
-// ==========================================
-// HOME PAGE
-// ==========================================
-
 const homeMarkets = document.querySelector("#home-markets");
 
 if (homeMarkets) {
@@ -125,10 +107,6 @@ if (homeMarkets) {
         .map(marketCard)
         .join("");
 }
-
-// ==========================================
-// MARKETS PAGE
-// ==========================================
 
 const allMarkets = document.querySelector("#all-markets");
 
@@ -174,10 +152,8 @@ if (allMarkets) {
             `${filteredMarkets.length} markets`;
     }
 
-    // Search functionality
     searchInput.addEventListener("input", renderMarkets);
 
-    // Category filters
     document.querySelectorAll("[data-filter]").forEach(button => {
 
         button.addEventListener("click", () => {
@@ -196,10 +172,6 @@ if (allMarkets) {
 
     renderMarkets();
 }
-
-// ==========================================
-// MARKET DETAILS PAGE
-// ==========================================
 
 const marketDetail = document.querySelector("#market-detail");
 
@@ -280,10 +252,6 @@ if (marketDetail) {
         </section>
     `;
 
-    // ======================================
-    // SIMULATED TRADING
-    // ======================================
-
     const tradeDialog = document.querySelector("#trade-dialog");
 
     let selectedSide = "YES";
@@ -358,10 +326,6 @@ if (marketDetail) {
 
         });
 
-    // ======================================
-    // COMMENTS
-    // ======================================
-
     const commentsContainer = document.querySelector("#comments");
 
     function escapeHTML(value) {
@@ -432,10 +396,6 @@ if (marketDetail) {
     renderComments();
 }
 
-// ==========================================
-// PORTFOLIO PAGE
-// ==========================================
-
 const positionsContainer = document.querySelector("#positions");
 
 if (positionsContainer) {
@@ -495,7 +455,6 @@ if (positionsContainer) {
     }
 }
 
-// Log Out
 const logoutButton = document.getElementById("logoutButton");
 
 if (logoutButton) {
@@ -510,7 +469,6 @@ if (logoutButton) {
 }
 
 
-// Delete Account
 const deleteAccountButton = document.getElementById("deleteAccountButton");
 
 if (deleteAccountButton) {

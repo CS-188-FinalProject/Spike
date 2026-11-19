@@ -1,8 +1,9 @@
-from flask import Flask, request
-from flask_bcrypt import generate_password_hash
+from flask import Flask, make_response, request
+from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_restful import Api, Resource
 
 from ._constants import (
+    BAD_LOGIN_MESSAGE,
     MAX_USERNAME_LENGTH,
     MIN_PASSWORD_LENGTH,
     PASSWORD_PATTERN,
@@ -64,6 +65,28 @@ class Register(Resource):
 
         return {"message": "User created successfully", "displayName": display_name}, 201
 
+class Login(Resource):
+    def post(self):
+        data = get_json_body()
+
+        missing_field = find_missing_field(data, ("username", "password"))
+        if missing_field is not None:
+            return {"message": f"Missing required field: {missing_field}"}, 400
+
+        username = data["username"]
+        password = data["password"]
+
+        user = get_db().get_login_info(username)
+
+        if not user or not check_password_hash(user.password, password):
+            return {"message": BAD_LOGIN_MESSAGE}, 401
+
+        message = f"Welcome back {user.display_name}."
+
+        response = make_response({"message": message, "displayName": user.display_name}, 200)
+        return response
+
 def setup_auth(app: Flask) -> None:
     api = Api(app)
     api.add_resource(Register, "/register")
+    api.add_resource(Login, "/login")

@@ -45,6 +45,22 @@ class Database:
         self.connection.commit()
         return True
 
+    def get_login_info(self, username: str):
+        with self.connection.cursor() as cursor:
+            cursor.execute("""SELECT userid, password, display_name FROM Users WHERE username = ?""", (username,),)
+            return cursor.fetchone()
+        return None
+
+    #TODO
+    def update_last_login(self, username: str):
+        if self.username_exists(username):
+            with self.connection.cursor() as cursor:
+                cursor.execute("UPDATE Users SET last_login_time = GETDATE() WHERE username = ?", (username,),)
+                self.connection.commit()
+                return True
+        else:
+            return False
+
 def get_db() -> Database:
     if "db" not in g:
         g.db = Database(mssql_python.connect(get_connection_string()))
